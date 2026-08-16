@@ -480,3 +480,22 @@ button:active, .task:active { transform: scale(.965); }
 .task-day-heading { display: flex; align-items: baseline; justify-content: space-between; margin: 0 0 9px; }
 .task-day-heading h3 { margin: 0; font-size: 16px; }
 .task-day-heading span { font-size: 12px; color: #616161; }
+
+/* Personal header, iOS dock, and a more tactile date carousel */
+.app-brand { margin: 0 0 8px; color: #6264a7; font-size: 13px; font-weight: 750; letter-spacing: .2px; }
+.app-header { margin-bottom: 14px; }
+.date-strip-viewport { overflow: hidden; margin: 0 -18px 23px; padding: 0 18px; }
+.date-strip { margin-bottom: 0; will-change: transform; }
+
+.bottom-nav { height: calc(86px + env(safe-area-inset-bottom)); gap: min(9vw, 74px); align-items: flex-start; padding-top: 11px; }
+.bottom-nav button { width: 54px; min-width: 54px; height: 54px; padding: 7px 0 5px; border-radius: 17px; justify-content: center; gap: 4px; }
+.bottom-nav button.active { background: #e9eaff; color: #464775; }
+.bottom-nav span { font-size: 19px; }
+.add-button { bottom: calc(98px + env(safe-area-inset-bottom)); }
+.app-shell { padding-bottom: calc(108px + env(safe-area-inset-bottom)); }
+
+.icon-button, .date-cell, .task, .check, .add-button, .bottom-nav button, .text-button { transition-duration: 420ms; transition-timing-function: cubic-bezier(.16, 1, .3, 1); }
+.icon-button:active, .date-cell:active, .task:active, .check:active, .add-button:active, .bottom-nav button:active, .text-button:active { transition-duration: 110ms; transition-timing-function: cubic-bezier(.3, 0, .7, .2); }
+button:active, .task:active { transform: scale(.92); }
+.bottom-nav button:active { transform: scale(.88); }
+.date-cell:active { transform: scale(.86); }
