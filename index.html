@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#6264a7" />
+  <title>Lịch cá nhân</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow" id="eyebrow">Hôm nay</p>
+        <h1 id="page-title">Lịch của tôi</h1>
+      </div>
+      <button class="icon-button" id="today-button" aria-label="Quay về hôm nay">⌾</button>
+    </header>
+
+    <section id="today-view" class="view active" aria-labelledby="page-title">
+      <div class="date-strip" id="date-strip"></div>
+      <div class="section-heading">
+        <h2>Việc cần làm</h2><span id="open-count" class="count"></span>
+      </div>
+      <div id="today-tasks" class="task-list"></div>
+      <div class="section-heading done-heading">
+        <h2>Đã hoàn thành</h2><span id="done-count" class="count"></span>
+      </div>
+      <div id="done-tasks" class="task-list"></div>
+    </section>
+
+    <section id="calendar-view" class="view" aria-label="Lịch tuần">
+      <div class="week-toolbar"><button id="previous-week" aria-label="Tuần trước">‹</button>
+        <h2 id="week-label"></h2><button id="next-week" aria-label="Tuần sau">›</button>
+      </div>
+      <div id="week-calendar" class="week-calendar"></div>
+    </section>
+
+    <section id="tasks-view" class="view" aria-label="Tất cả công việc">
+      <div class="section-heading">
+        <h2>Tất cả công việc</h2><button class="text-button" id="clear-completed">Xóa việc đã xong</button>
+      </div>
+      <div id="all-tasks" class="task-list"></div>
+    </section>
+
+    <button id="add-button" class="add-button" aria-label="Thêm công việc">+</button>
+    <nav class="bottom-nav" aria-label="Điều hướng chính">
+      <button data-view="today" class="active"><span>◉</span>Hôm nay</button>
+      <button data-view="calendar"><span>▦</span>Lịch</button>
+      <button data-view="tasks"><span>✓</span>Việc làm</button>
+    </nav>
+  </main>
+
+  <dialog id="task-dialog">
+    <form id="task-form">
+      <div class="dialog-heading">
+        <h2 id="dialog-title">Thêm công việc</h2><button type="button" class="icon-button" id="close-dialog"
+          aria-label="Đóng">×</button>
+      </div>
+      <input type="hidden" id="task-id" />
+      <label>Tiêu đề<input id="task-title" required maxlength="120" placeholder="Ví dụ: Hoàn thiện proposal" /></label>
+      <label>Ghi chú<textarea id="task-notes" rows="2" maxlength="500"
+          placeholder="Thêm chi tiết nếu cần"></textarea></label>
+      <div class="form-grid"><label>Ngày<input id="task-date" type="date" required /></label><label>Giờ bắt đầu<input
+            id="task-time" type="time" /></label></div>
+      <label class="checkbox-row"><input id="all-day" type="checkbox" /> Việc cả ngày</label>
+      <label>Ưu tiên<select id="task-priority">
+          <option value="medium">Bình thường</option>
+          <option value="high">Cao</option>
+          <option value="low">Thấp</option>
+        </select></label>
+      <div class="dialog-actions"><button type="button" class="delete-button hidden"
+          id="delete-task">Xóa</button><button type="submit" class="save-button">Lưu công việc</button></div>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+
+</html>
