@@ -457,3 +457,26 @@ textarea {
         right: calc(50% - 322px)
     }
 }
+
+/* iOS-first interactions and viewport stability */
+html, body { height: 100%; overflow: hidden; }
+body { overscroll-behavior: none; -webkit-text-size-adjust: 100%; }
+.app-shell { height: 100svh; min-height: 100svh; overflow-y: auto; overscroll-behavior-y: contain; }
+.date-strip { touch-action: pan-y; user-select: none; }
+input, textarea, select { font-size: 16px; }
+
+.icon-button, .date-cell, .task, .check, .add-button, .bottom-nav button, .text-button {
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 180ms cubic-bezier(.2,.8,.2,1), background-color 180ms ease, color 180ms ease, box-shadow 200ms ease, opacity 180ms ease;
+}
+.date-cell.selected b { transition: transform 220ms cubic-bezier(.2,.8,.2,1), background-color 220ms ease; }
+button:active, .task:active { transform: scale(.965); }
+.date-cell:active { transform: scale(.9); }
+.add-button:active { transform: scale(.9); box-shadow: 0 3px 10px #6264a755; }
+.check:active { transform: scale(.84); }
+.text-button:active { opacity: .6; transform: scale(.97); }
+
+.task-days { display: grid; gap: 22px; }
+.task-day-heading { display: flex; align-items: baseline; justify-content: space-between; margin: 0 0 9px; }
+.task-day-heading h3 { margin: 0; font-size: 16px; }
+.task-day-heading span { font-size: 12px; color: #616161; }
